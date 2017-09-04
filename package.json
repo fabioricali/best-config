@@ -1,6 +1,6 @@
 {
   "name": "best-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Each app can has different server configurations, the goal of this module is manage them.",
   "main": "index.js",
   "directories": {
@@ -13,7 +13,8 @@
     "postversion": "npm publish && npm run-script doc && git push && git push --tags",
     "mocha.test": "mocha test",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "doc": "jsdoc2md --no-gfm src/best-config.js > api.md"  },
+    "doc": "jsdoc2md --no-gfm src/best-config.js > api.md"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabioricali/best-config.git"
