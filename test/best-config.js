@@ -4,9 +4,13 @@ const fs = require('fs');
 const os = require('os');
 
 describe('best-config', function () {
+    before(function () {
+        if(!fs.existsSync('./test/texture/emptyFolder'))
+            fs.mkdirSync('./test/texture/emptyFolder');
+    });
     it('load, should be return a json', function () {
         const config = bestConfig({
-            path: './test/texture/config'
+            path: './test/texture/config2'
         });
         console.log(config);
         be.err.object(config);
@@ -30,6 +34,7 @@ describe('best-config', function () {
     it('wrong path, should be return error', function (done) {
         try {
             bestConfig({
+                file: 'server1',
                 path: './test/texture/config23'
             });
         } catch (e) {
@@ -61,6 +66,7 @@ describe('best-config', function () {
     it('global name not allowed, should be return error', function (done) {
         try {
             bestConfig({
+                file: 'server1',
                 path: './test/texture/config',
                 addToGlobalWithName: 'process'
             });
@@ -72,6 +78,7 @@ describe('best-config', function () {
     it('undefined append key, should be return error', function (done) {
         try {
             bestConfig({
+                file: 'server1',
                 path: './test/texture/config',
                 append: {
                     key: undefined,
