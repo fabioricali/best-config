@@ -75,6 +75,17 @@ describe('best-config', function () {
             be.err(done).equal('you can not add to the global object with this name: process', e.message);
         }
     });
+    it('add to global, should be return object', function () {
+
+        bestConfig({
+            file: 'server1',
+            path: './test/texture/config',
+            addToGlobalWithName: '__A_CONFIG__'
+        });
+
+        be.err.object(__A_CONFIG__);
+        be.err.equal(__A_CONFIG__.foo1, 'one1');
+    });
     it('undefined append key, should be return error', function (done) {
         try {
             bestConfig({
