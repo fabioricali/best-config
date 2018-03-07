@@ -32,6 +32,7 @@ const config = require('best-config')({
 });
 
 //Add configuration to global
+/** @namespace _MY_CONFIG_ */
 require('best-config')({
   file: 'config1',
   addToGlobalWithName: '_MY_CONFIG_'
